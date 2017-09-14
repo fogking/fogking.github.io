@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    {{title | uppercase | honor}}\n  </h1>\n  \n  <app-header></app-header>\n  <app-body></app-body>\n  <app-footer></app-footer>\n\n  \n</div>\n\n\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <!-- <h1>\n    {{title | uppercase | honor}}\n  </h1> -->\n  \n  <app-header></app-header>\n  <app-body></app-body>\n  <app-footer></app-footer>\n\n  \n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -44,15 +44,24 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
+
+// import { LogLevel } from './service/log-level.enum';
 var AppComponent = AppComponent_1 = (function () {
-    function AppComponent() {
+    // logLevel: LogLevel = LogLevel.DEBUG;
+    // logger: MySpecialLoggerService;
+    function AppComponent(logger) {
+        this.logger = logger;
         this.title = 'fogking.github.io';
         this.userName = '';
         this.valid = false;
@@ -80,10 +89,11 @@ AppComponent = AppComponent_1 = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */]) === "function" && _a || Object])
 ], AppComponent);
 
-var AppComponent_1;
+var AppComponent_1, _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -102,12 +112,20 @@ var AppComponent_1;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__body_body_component__ = __webpack_require__("../../../../../src/app/body/body.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pipe_honor_pipe__ = __webpack_require__("../../../../../src/app/pipe/honor.pipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__body_mouse_track_zone_mouse_track_zone_component__ = __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -136,12 +154,28 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
         ],
-        providers: [],
+        providers: [
+            // MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN , useValue: LogLevel.INFO},
+            __WEBPACK_IMPORTED_MODULE_9__service_my_special_logger_service__["a" /* MySpecialLoggerService */],
+            __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__["a" /* AnotherLoggerService */], { provide: __WEBPACK_IMPORTED_MODULE_12__app_token__["a" /* LOG_LEVEL_TOKEN */], useValue: __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__["a" /* LogLevel */].INFO }
+        ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.token.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOG_LEVEL_TOKEN; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+
+var LOG_LEVEL_TOKEN = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('logLevel');
+//# sourceMappingURL=app.token.js.map
 
 /***/ }),
 
@@ -166,7 +200,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div>\n\n<app-mouse-track-zone></app-mouse-track-zone>\n\n        \n"
+module.exports = "<section class=\"conA\">\n        <div>\n          <img src=\"./assets/image/MANJOO_CI.png\" alt=\"\">\n        </div>\n      \n</section>\n      \n\n<div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div>\n\n<app-mouse-track-zone></app-mouse-track-zone>\n\n        \n"
 
 /***/ }),
 
@@ -177,7 +211,6 @@ module.exports = "<div class=\"counter\" [style.backgroundColor]=\"colorByValue(
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BodyComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -189,16 +222,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var BodyComponent = BodyComponent_1 = (function () {
-    function BodyComponent() {
+    // @Input() logger: MySpecialLoggerService;
+    function BodyComponent(logger) {
+        this.logger = logger;
         this.title = 'Body!!';
         this.curVal = 0;
         this.manualVal = 0;
-        this.logger = new __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */](__WEBPACK_IMPORTED_MODULE_2__service_log_level_enum__["a" /* LogLevel */].DEBUG);
     }
-    BodyComponent.prototype.ngOnInit = function () {
-    };
+    BodyComponent.prototype.ngOnInit = function () { };
     BodyComponent.prototype.onClick = function (element) {
         alert(element.value);
     };
@@ -215,7 +247,6 @@ var BodyComponent = BodyComponent_1 = (function () {
         if (this.checkLimitCnt(tempVal)) {
             this.curVal = tempVal;
         }
-        // console.log(this.logger);
         this.logger.debug("ss");
     };
     BodyComponent.prototype.dec = function () {
@@ -247,10 +278,10 @@ BodyComponent = BodyComponent_1 = __decorate([
         styles: [__webpack_require__("../../../../../src/app/body/body.component.css")],
         host: { 'class': 'col-12 col-sm-6 col-md-4 col-lg-3 ' }
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */]) === "function" && _a || Object])
 ], BodyComponent);
 
-var BodyComponent_1;
+var BodyComponent_1, _a;
 //# sourceMappingURL=body.component.js.map
 
 /***/ }),
@@ -287,7 +318,7 @@ module.exports = "<div class=\"track-zone\" (click)=\"captureMousePos($event)\">
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MouseTrackZoneComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -297,17 +328,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
 var MouseTrackZoneComponent = (function () {
-    function MouseTrackZoneComponent() {
-        this.logLevel = __WEBPACK_IMPORTED_MODULE_2__service_log_level_enum__["a" /* LogLevel */].INFO;
-        this.logger = new __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */](this.logLevel);
+    function MouseTrackZoneComponent(mySpecialLogger, anotherLogger) {
+        this.logger = mySpecialLogger ? mySpecialLogger : anotherLogger;
     }
-    MouseTrackZoneComponent.prototype.ngOnInit = function () {
-        console.log("asdf");
-    };
+    MouseTrackZoneComponent.prototype.ngOnInit = function () { };
     MouseTrackZoneComponent.prototype.captureMousePos = function ($event) {
         this.logger.debug('click event occured');
         var pos = [$event.clientX, $event.clientY];
@@ -320,11 +351,13 @@ MouseTrackZoneComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-mouse-track-zone',
         template: __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.css")],
     }),
-    __metadata("design:paramtypes", [])
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* Host */])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Optional */])()),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_another_logger_service__["a" /* AnotherLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_another_logger_service__["a" /* AnotherLoggerService */]) === "function" && _b || Object])
 ], MouseTrackZoneComponent);
 
+var _a, _b;
 //# sourceMappingURL=mouse-track-zone.component.js.map
 
 /***/ }),
@@ -386,7 +419,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  이 사이트는 앵귤러 4 기반으로 작성되어져 있으며 개발자가 앵귤러를 접한지 얼마 되지않아 버그가 있을 수 있습니다.\n</p>\n"
+module.exports = "<div class=\"none\" style=\"background-color: lightblue;\"> header </div>"
 
 /***/ }),
 
@@ -457,6 +490,68 @@ HonorPipe = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/service/another-logger.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnotherLoggerService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logger_service__ = __webpack_require__("../../../../../src/app/service/logger-service.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var AnotherLoggerService = (function (_super) {
+    __extends(AnotherLoggerService, _super);
+    function AnotherLoggerService(logLevel) {
+        return _super.call(this, logLevel) || this;
+    }
+    AnotherLoggerService.prototype.log = function (logLevel, msg) {
+        var logMsg = this.getFormattedLogMsg(logLevel, msg);
+        if (this.isProperLogLevel(logLevel)) {
+            console.log(logMsg);
+        }
+    };
+    AnotherLoggerService.prototype.getFormattedLogMsg = function (logLevel, msg) {
+        return "[" + __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */][logLevel] + "] - " + msg;
+    };
+    return AnotherLoggerService;
+}(__WEBPACK_IMPORTED_MODULE_3__logger_service__["a" /* LoggerService */]));
+AnotherLoggerService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__app_token__["a" /* LOG_LEVEL_TOKEN */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */]) === "function" && _a || Object])
+], AnotherLoggerService);
+
+var _a;
+//# sourceMappingURL=another-logger.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/service/log-level.enum.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -473,6 +568,33 @@ var LogLevel;
 
 /***/ }),
 
+/***/ "../../../../../src/app/service/logger-service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggerService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
+
+var LoggerService = (function () {
+    function LoggerService(logLevel) {
+        this.logLevel = logLevel;
+    }
+    LoggerService.prototype.debug = function (msg) { this.log(__WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */].DEBUG, msg); };
+    LoggerService.prototype.info = function (msg) { this.log(__WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */].INFO, msg); };
+    LoggerService.prototype.warn = function (msg) { this.log(__WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */].WARN, msg); };
+    LoggerService.prototype.error = function (msg) { this.log(__WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */].ERROR, msg); };
+    LoggerService.prototype.isProperLogLevel = function (logLevel) {
+        if (this.logLevel === __WEBPACK_IMPORTED_MODULE_0__log_level_enum__["a" /* LogLevel */].DEBUG)
+            return true;
+        return logLevel >= this.logLevel;
+    };
+    return LoggerService;
+}());
+
+//# sourceMappingURL=logger-service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/service/my-special-logger.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -482,6 +604,18 @@ var LogLevel;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_date_fns_format__ = __webpack_require__("../../../../date-fns/format/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_date_fns_format___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_date_fns_format__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logger_service__ = __webpack_require__("../../../../../src/app/service/logger-service.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -491,15 +625,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
-var MySpecialLoggerService = (function () {
+
+
+var MySpecialLoggerService = (function (_super) {
+    __extends(MySpecialLoggerService, _super);
     function MySpecialLoggerService(logLevel) {
-        this.logs = [];
-        this.MAX_HISTORY_CNT = 100;
-        this.TIME_FORMATTER = "YYYY-MM-DD HH:mm:ss SSS";
-        this.logLevel = logLevel;
+        var _this = _super.call(this, logLevel) || this;
+        _this.logs = [];
+        _this.MAX_HISTORY_CNT = 100;
+        _this.TIME_FORMATTER = "YYYY-MM-DD HH:mm:ss SSS";
+        return _this;
     }
     MySpecialLoggerService.prototype.debug = function (msg) { this.log(__WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].DEBUG, msg); };
     MySpecialLoggerService.prototype.info = function (msg) { this.log(__WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */].INFO, msg); };
@@ -528,9 +669,10 @@ var MySpecialLoggerService = (function () {
         this.logs.push(log);
     };
     return MySpecialLoggerService;
-}());
+}(__WEBPACK_IMPORTED_MODULE_4__logger_service__["a" /* LoggerService */]));
 MySpecialLoggerService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_3__app_token__["a" /* LOG_LEVEL_TOKEN */])),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */]) === "function" && _a || Object])
 ], MySpecialLoggerService);
 
