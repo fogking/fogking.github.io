@@ -187,7 +187,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#app-body{\r\n    .title {\r\n        padding: 10px;\r\n    }\r\n}", ""]);
+exports.push([module.i, "@charset \"utf-8\"\r\n\r\n:root {\r\n    --margin-color: #5d9ab2;\r\n    --accent-color: #bf6a7a;\r\n    --dark-main-color: #2b5566;\r\n}\r\n\r\napp-body {\r\n    font-family: '\\B9D1\\C740   \\ACE0\\B515',\r\n        'Apple SD Gothic Neo',\r\n        sans-serif;\r\n}\r\n\r\n.conA {\r\n    text-align: center;\r\n}\r\n\r\n.conA h1 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-size: 15vw;\r\n}\r\n\r\n.conA p {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n    font-size: 18px;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .conA h1 {\r\n        font-size: 115px;\r\n    }\r\n\r\n    .conA p {\r\n        font-size: 24px;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -200,7 +200,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"conA\">\n        <div>\n          <img src=\"./assets/image/MANJOO_CI.png\" alt=\"\">\n        </div>\n      \n</section>\n      \n\n<div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div>\n\n<app-mouse-track-zone></app-mouse-track-zone>\n\n        \n"
+module.exports = "<section class=\"conA\">\n    <div calss=\"container\">\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<app-mouse-track-zone></app-mouse-track-zone>\n\n        \n"
 
 /***/ }),
 
@@ -388,8 +388,8 @@ var FooterComponent = (function () {
 FooterComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-footer',
-        template: "\n    <p>\n      &copy; Copyright 2017 fogking.github.io all right reserved.\n    </p>\n  ",
-        styles: ['p {text-align:center}']
+        template: "\n    <div>\n      <p>\n        &copy; Copyright 2017 fogking.github.io all right reserved.\n      </p>\n    </div>\n  ",
+        styles: ['p {text-align:center}', ' div{background-color: lightblue};']
     }),
     __metadata("design:paramtypes", [])
 ], FooterComponent);
