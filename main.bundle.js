@@ -200,7 +200,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"conA\">\n    <div calss=\"container\">\n        <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\">\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+module.exports = "<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
 
 /***/ }),
 
