@@ -276,7 +276,6 @@ BodyComponent = BodyComponent_1 = __decorate([
         selector: 'app-body',
         template: __webpack_require__("../../../../../src/app/body/body.component.html"),
         styles: [__webpack_require__("../../../../../src/app/body/body.component.css")],
-        host: { 'class': 'col-12 col-sm-6 col-md-4 col-lg-3 ' }
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */]) === "function" && _a || Object])
 ], BodyComponent);
