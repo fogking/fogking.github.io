@@ -200,7 +200,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\">\n        <canvas #myCanvas width=\"480\" height=\"320\"></canvas>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\" (click)=\"keyDown($event)\">\n        <canvas #myCanvas width=\"480\" height=\"320\"  (mouseover)=\"test()\" ></canvas>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
 
 /***/ }),
 
@@ -234,16 +234,39 @@ var BodyComponent = (function () {
         this.y = this.canvas.height - 30;
         this.dx = 2;
         this.dy = -2;
+        this.paddleHeight = 10;
+        this.paddleWidth = 75;
+        this.paddleX = (this.canvas.width - this.paddleWidth) / 2;
+        this.rightPressed = false;
+        this.leftPressed = false;
         this.draw();
     };
     // TODO : 앞으로는 어디로 갈지 정해야 함.
     BodyComponent.prototype.startManjoo = function () {
         alert("잠시만요.. 열심히 만들고 있어요!! ^_^/");
     };
+    BodyComponent.prototype.keyDown = function ($event) {
+        console.log("ddd");
+    };
+    BodyComponent.prototype.keyUp = function ($event) {
+    };
+    BodyComponent.prototype.test = function () {
+        console.log("test");
+        this.canvas.focus();
+    };
     BodyComponent.prototype.drawBall = function () {
         var ctx = this.context;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 10, 0, Math.PI * 2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    };
+    BodyComponent.prototype.drawPaddle = function () {
+        var ctx = this.context;
+        ctx.beginPath();
+        ctx.rect(this.paddleX, this.canvas.height - this.paddleHeight, this.paddleWidth, this.paddleHeight);
+        // console.log(ctx.rect );
         ctx.fillStyle = "#0095DD";
         ctx.fill();
         ctx.closePath();
@@ -256,11 +279,18 @@ var BodyComponent = (function () {
         var ctx = this.context;
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawBall();
+        this.drawPaddle();
         if (this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
             this.dx = -(this.dx);
         }
         if (this.y + this.dy > this.canvas.height - this.ballRadius || this.y + this.dy < this.ballRadius) {
             this.dy = -(this.dy);
+        }
+        if (this.rightPressed && this.paddleX < this.canvas.width - this.paddleWidth) {
+            this.paddleX += 7;
+        }
+        else if (this.leftPressed && this.paddleX > 0) {
+            this.paddleX -= 7;
         }
         this.x += this.dx;
         this.y += this.dy;
