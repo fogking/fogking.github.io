@@ -190,7 +190,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".button {\r\n    display: inline-block;\r\n    font-size: 80px;\r\n    background-color: #008CBA;\r\n}", ""]);
+exports.push([module.i, ".button {\r\n    display: inline-block;\r\n    font-size: 80px;\r\n    background-color: #008CBA;\r\n}\r\n\r\n.contents .testcanvas {\r\n    /* width: 100vh; */\r\n} \r\n", ""]);
 
 // exports
 
@@ -203,7 +203,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/block-game/block-game.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <button class=\"fa fa-angle-double-left button\" type=\"button\" \r\n        (mousedown)=\"leftMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n    <canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" (touchmove)=\"touchMove($event)\" ></canvas>\r\n    <button class=\"fa fa-angle-double-right button\" type=\"button\" \r\n        (mousedown)=\"rightMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n</div>"
+module.exports = "<div class=\"contents\"  >\r\n    <!-- <button class=\"fa fa-angle-double-left button\" type=\"button\" \r\n        (mousedown)=\"leftMove($event)\" (mouseup)=\"notMove($event)\">  </button> -->\r\n    <canvas class=\"testcanvas\"  #myCanvas  width=\"360\" height=\"320\"  (mousemove)=\"mouseMove($event)\" (touchmove)=\"touchMove($event)\" ></canvas>\r\n    <!-- <button class=\"fa fa-angle-double-right button\" type=\"button\" \r\n        (mousedown)=\"rightMove($event)\" (mouseup)=\"notMove($event)\">  </button> -->\r\n</div>"
 
 /***/ }),
 
@@ -227,30 +227,39 @@ var BlockGameComponent = (function () {
     function BlockGameComponent() {
         this.brickRowCount = 3;
         this.brickColumnCount = 5;
-        this.brickWidth = 75;
-        this.brickHeight = 20;
+        this.brickWidth = 53;
+        this.brickHeight = 10;
         this.brickPadding = 10;
         this.brickOffsetTop = 30;
         this.brickOffsetLeft = 30;
         this.score = 0;
         this.bricks = [];
-        // 내가 추가한거
-        this.lives = 3;
         this.ballColor = "#0095DD";
+        this.level = 1;
+        this.ballSpeedX = 2;
+        this.ballSpeedY = -2;
+        this.ballSpeedInterval = 0.5;
     }
     BlockGameComponent.prototype.ngOnInit = function () {
         this.canvas = this.myCanvas.nativeElement;
         this.context = this.canvas.getContext("2d");
+        this.customInit();
+        this.draw();
+    };
+    // game over
+    BlockGameComponent.prototype.customInit = function () {
         this.ballRadius = 10;
         this.x = this.canvas.width / 2;
         this.y = this.canvas.height - 30;
-        this.dx = 2;
-        this.dy = -2;
+        this.dx = this.ballSpeedX;
+        this.dy = this.ballSpeedY;
         this.paddleHeight = 10;
         this.paddleWidth = 75;
         this.paddleX = (this.canvas.width - this.paddleWidth) / 2;
         this.rightPressed = false;
         this.leftPressed = false;
+        this.score = 0;
+        this.lives = 8;
         // 대라기 빡대가리 됬나봐 배열 문법 몰라서 해맴 ... 시발.....
         for (var c = 0; c < this.brickColumnCount; c++) {
             this.bricks[c] = [];
@@ -258,7 +267,6 @@ var BlockGameComponent = (function () {
                 this.bricks[c][r] = { x: 0, y: 0, status: 1 };
             }
         }
-        this.draw();
     };
     BlockGameComponent.prototype.leftMove = function ($event) {
         this.leftPressed = true;
@@ -291,7 +299,6 @@ var BlockGameComponent = (function () {
         ctx.beginPath();
         ctx.arc(this.x, this.y, 10, 0, Math.PI * 2);
         ctx.fillStyle = this.ballColor;
-        // ctx.fillStyle = "#"+r+g+b;
         ctx.fill();
         ctx.closePath();
     };
@@ -356,6 +363,12 @@ var BlockGameComponent = (function () {
         ctx.fillStyle = "#0095DD";
         ctx.fillText("Lives: " + this.lives, this.canvas.width - 65, 20);
     };
+    BlockGameComponent.prototype.drawLevel = function () {
+        var ctx = this.context;
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Level: " + this.level, (this.canvas.width / 2) - 20, 20);
+    };
     BlockGameComponent.prototype.draw = function () {
         var _this = this;
         requestAnimationFrame(function () {
@@ -368,6 +381,7 @@ var BlockGameComponent = (function () {
         this.drawPaddle();
         this.drawScore();
         this.drawLives();
+        this.drawLevel();
         this.collisionDetection();
         if (this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
             this.dx = -(this.dx);
@@ -383,12 +397,16 @@ var BlockGameComponent = (function () {
                 this.lives--;
                 if (!this.lives) {
                     alert("GAME OVER");
+                    this.customInit();
                 }
                 else {
+                    this.ballSpeedX += this.ballSpeedInterval;
+                    this.ballSpeedY -= this.ballSpeedInterval;
+                    // alert('x = '+this.dx + ' , y ='+this.dy);
                     this.x = this.canvas.width / 2;
                     this.y = this.canvas.height - 30;
-                    this.dx = 3;
-                    this.dy = -3;
+                    this.dx = this.ballSpeedX;
+                    this.dy = this.ballSpeedY;
                     this.paddleX = (this.canvas.width - this.paddleWidth) / 2;
                 }
             }
@@ -429,7 +447,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@charset \"utf-8\";\r\n\r\n:root {\r\n    --margin-color: #5d9ab2;\r\n    --accent-color: #bf6a7a;\r\n    --dark-main-color: #2b5566;\r\n    --text-bright-color: #fff;\r\n    --icon-color: #fff;\r\n    --icon-bk-color: #ddd;\r\n    --large-width: 1000px;\r\n}\r\n\r\napp-body {\r\n    margin: 0;\r\n    font-family: '\\B9D1\\C740   \\ACE0\\B515',\r\n        'Apple SD Gothic Neo',\r\n        sans-serif;\r\n}\r\n\r\n/* 콘텐츠A 히어로 이미지 */\r\n.conA {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    height: 100vh;\r\n    min-height: 450px;\r\n    /* background-image: url(/assets/image/hero_blue.jpg); */\r\n    /* background-image: url(/assets/image/hero.jpg); */\r\n    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero.jpg);\r\n    /* background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero_blue.jpg); */\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: var(--text-bright-color);\r\n    color: #fff;\r\n    text-align: center;\r\n}\r\n\r\n.conA h1 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-family: 'Montesrrat', sans-serif;\r\n    font-size: 15vw;\r\n    letter-spacing: 0.2em;\r\n    margin-left: 0.2em;\r\n}\r\n\r\n.conA p {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n    font-size: 18px;\r\n}\r\n\r\n.conA img {\r\n    width: 20%;\r\n}\r\n\r\n.conA a {\r\n    display: inline-block;\r\n    margin-top: 20px;\r\n    padding: 10px 30px;\r\n    border: solid 3px currentColor;\r\n    border-radius: 6px;\r\n    background-color: rgb(106, 107, 191);\r\n    /* background-color: var(--accent-color); */\r\n    color: #fff;\r\n    font-size: 14px;\r\n    text-decoration: none;\r\n}\r\n\r\n.conA a:hover {\r\n    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));\r\n}\r\n\r\n/* 콘텐츠B: 개요(아이콘 + 글자) */\r\n.conB h2 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-size: 20px;\r\n}\r\n\r\n.conB p {\r\n    margin-top: 0;\r\n    margin-bottom: 20px;\r\n    font-size: 14px;\r\n    line-height: 1.8;\r\n    opacity:0.5\r\n}\r\n\r\n.conB a {\r\n    color: #5d9ab2;\r\n    /* color: var(--main-color); */\r\n    text-decoration: none;\r\n}\r\n\r\n.conB a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.conB .icon {\r\n    display: inline-block;\r\n    margin-bottom: 20px;\r\n    font-size: 40px;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    background-color: #ddd;\r\n    /* background-color: var(--icon-bk-color); */\r\n    color: #fff;\r\n    /* color: var(--icon-color); */\r\n}\r\n\r\n.conB .text{\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-bottom: 60px;\r\n    text-align: center;\r\n}\r\n\r\n.conB .container {\r\n    padding-top: 80px;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.blockGame {\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\n\r\n.blockGame .container {\r\n    background: #2b5566;\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .conA h1 {\r\n        font-size: 115px;\r\n    }\r\n\r\n    .conA p {\r\n        font-size: 24px;\r\n    }\r\n\r\n    .conB .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        max-width: 1000px;\r\n        /* max-width: var(--large-width); */\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .conB .text {\r\n        -webkit-box-flex: 1;\r\n            -ms-flex: 1;\r\n                flex: 1;\r\n    }\r\n}\r\n\r\n/* vietnamese */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/SKK6Nusyv8QPNMtI4j9J2yEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;\r\n}\r\n\r\n/* latin-ext */\r\n    @font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/gFXtEMCp1m_YzxsBpKl68iEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\r\n}\r\n\r\n/* latin */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');\r\n    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;\r\n}", ""]);
+exports.push([module.i, "@charset \"utf-8\";\r\n\r\n:root {\r\n    --margin-color: #5d9ab2;\r\n    --accent-color: #bf6a7a;\r\n    --dark-main-color: #2b5566;\r\n    --text-bright-color: #fff;\r\n    --icon-color: #fff;\r\n    --icon-bk-color: #ddd;\r\n    --large-width: 1000px;\r\n}\r\n\r\napp-body {\r\n    margin: 0;\r\n    font-family: '\\B9D1\\C740   \\ACE0\\B515',\r\n        'Apple SD Gothic Neo',\r\n        sans-serif;\r\n}\r\n\r\n/* 콘텐츠A 히어로 이미지 */\r\n.conA {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    height: 100vh;\r\n    min-height: 450px;\r\n    /* background-image: url(/assets/image/hero_blue.jpg); */\r\n    /* background-image: url(/assets/image/hero.jpg); */\r\n    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero.jpg);\r\n    /* background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero_blue.jpg); */\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: var(--text-bright-color);\r\n    color: #fff;\r\n    text-align: center;\r\n}\r\n\r\n.conA h1 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-family: 'Montesrrat', sans-serif;\r\n    font-size: 15vw;\r\n    letter-spacing: 0.2em;\r\n    margin-left: 0.2em;\r\n}\r\n\r\n.conA p {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n    font-size: 18px;\r\n}\r\n\r\n.conA img {\r\n    width: 20%;\r\n}\r\n\r\n.conA a {\r\n    display: inline-block;\r\n    margin-top: 20px;\r\n    padding: 10px 30px;\r\n    border: solid 3px currentColor;\r\n    border-radius: 6px;\r\n    background-color: rgb(106, 107, 191);\r\n    /* background-color: var(--accent-color); */\r\n    color: #fff;\r\n    font-size: 14px;\r\n    text-decoration: none;\r\n}\r\n\r\n.conA a:hover {\r\n    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));\r\n}\r\n\r\n/* 콘텐츠B: 개요(아이콘 + 글자) */\r\n.conB h2 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-size: 20px;\r\n}\r\n\r\n.conB p {\r\n    margin-top: 0;\r\n    margin-bottom: 20px;\r\n    font-size: 14px;\r\n    line-height: 1.8;\r\n    opacity:0.5\r\n}\r\n\r\n.conB a {\r\n    color: #5d9ab2;\r\n    /* color: var(--main-color); */\r\n    text-decoration: none;\r\n}\r\n\r\n.conB a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.conB .icon {\r\n    display: inline-block;\r\n    margin-bottom: 20px;\r\n    font-size: 40px;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    background-color: #ddd;\r\n    /* background-color: var(--icon-bk-color); */\r\n    color: #fff;\r\n    /* color: var(--icon-color); */\r\n}\r\n\r\n.conB .text{\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-bottom: 60px;\r\n    text-align: center;\r\n}\r\n\r\n.conB .container {\r\n    padding-top: 80px;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.blockGame {\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\n\r\n.blockGame .container {\r\n    background: #2b5566;\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .conA h1 {\r\n        font-size: 115px;\r\n    }\r\n\r\n    .conA p {\r\n        font-size: 24px;\r\n    }\r\n\r\n    .conB .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        max-width: 1000px;\r\n        /* max-width: var(--large-width); */\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .conB .text {\r\n        -webkit-box-flex: 1;\r\n            -ms-flex: 1;\r\n                flex: 1;\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\n/* vietnamese */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/SKK6Nusyv8QPNMtI4j9J2yEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;\r\n}\r\n\r\n/* latin-ext */\r\n    @font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/gFXtEMCp1m_YzxsBpKl68iEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\r\n}\r\n\r\n/* latin */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');\r\n    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;\r\n}", ""]);
 
 // exports
 
