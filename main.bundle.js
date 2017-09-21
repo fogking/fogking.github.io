@@ -280,11 +280,11 @@ var BlockGameComponent = (function () {
         }
     };
     BlockGameComponent.prototype.touchMove = function ($event) {
-        alert("터치 되냐?");
-        // var relativeX = $event.clientX - this.canvas.offsetLeft;
-        // if(relativeX > 0 && relativeX < this.canvas.width) {
-        //     this.paddleX = relativeX - this.paddleWidth/2;
-        // }
+        // alert("터치 되냐?");
+        var relativeX = $event.touches[0].clientX - this.canvas.offsetLeft;
+        if (relativeX > 0 && relativeX < this.canvas.width) {
+            this.paddleX = relativeX - this.paddleWidth / 2;
+        }
     };
     BlockGameComponent.prototype.drawBall = function () {
         var ctx = this.context;
