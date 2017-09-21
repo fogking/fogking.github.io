@@ -190,7 +190,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".button {\r\n    display: inline-block;\r\n    font-size: 80px;\r\n    background-color: #008CBA;\r\n}", ""]);
 
 // exports
 
@@ -203,7 +203,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/block-game/block-game.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" ></canvas>"
+module.exports = "<div>\r\n    <button class=\"fa fa-angle-double-left button\" type=\"button\" \r\n        (mousedown)=\"leftMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n    <canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" ></canvas>\r\n    <button class=\"fa fa-angle-double-right button\" type=\"button\" \r\n        (mousedown)=\"rightMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n</div>"
 
 /***/ }),
 
@@ -259,6 +259,19 @@ var BlockGameComponent = (function () {
             }
         }
         this.draw();
+    };
+    BlockGameComponent.prototype.leftMove = function ($event) {
+        this.leftPressed = true;
+        this.rightPressed = false;
+        console.log("되냐?");
+    };
+    BlockGameComponent.prototype.rightMove = function ($event) {
+        this.leftPressed = false;
+        this.rightPressed = true;
+    };
+    BlockGameComponent.prototype.notMove = function ($event) {
+        this.leftPressed = false;
+        this.rightPressed = false;
     };
     BlockGameComponent.prototype.mouseMove = function ($event) {
         var relativeX = $event.clientX - this.canvas.offsetLeft;
@@ -422,7 +435,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\" (click)=\"keyDown($event)\">\n        <app-block-game></app-block-game>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\">\n        <app-block-game></app-block-game>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
 
 /***/ }),
 
