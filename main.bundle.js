@@ -200,7 +200,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\" (click)=\"keyDown($event)\">\n        <canvas #myCanvas width=\"480\" height=\"320\"  (mouseover)=\"test()\" ></canvas>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\" (click)=\"keyDown($event)\">\n        <canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove()\" ></canvas>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
 
 /***/ }),
 
@@ -225,6 +225,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var BodyComponent = (function () {
     function BodyComponent(logger) {
         this.logger = logger;
+        this.brickRowCount = 3;
+        this.brickColumnCount = 5;
+        this.brickWidth = 75;
+        this.brickHeight = 20;
+        this.brickPadding = 10;
+        this.brickOffsetTop = 30;
+        this.brickOffsetLeft = 30;
+        this.bricks = [];
     }
     BodyComponent.prototype.ngOnInit = function () {
         this.canvas = this.myCanvas.nativeElement;
@@ -239,6 +247,13 @@ var BodyComponent = (function () {
         this.paddleX = (this.canvas.width - this.paddleWidth) / 2;
         this.rightPressed = false;
         this.leftPressed = false;
+        // 대라기 빡대가리 됬나봐 배열 문법 몰라서 해맴 ... 시발.....
+        for (var c = 0; c < this.brickColumnCount; c++) {
+            this.bricks[c] = [];
+            for (var r = 0; r < this.brickRowCount; r++) {
+                this.bricks[c][r] = { x: 0, y: 0 };
+            }
+        }
         this.draw();
     };
     // TODO : 앞으로는 어디로 갈지 정해야 함.
@@ -250,9 +265,12 @@ var BodyComponent = (function () {
     };
     BodyComponent.prototype.keyUp = function ($event) {
     };
-    BodyComponent.prototype.test = function () {
-        console.log("test");
-        this.canvas.focus();
+    BodyComponent.prototype.mouseMove = function () {
+        console.log("ddd");
+        // var relativeX = e.clientX - canvas.offsetLeft;
+        // if(relativeX > 0 && relativeX < canvas.width) {
+        //     paddleX = relativeX - paddleWidth/2;
+        // }
     };
     BodyComponent.prototype.drawBall = function () {
         var ctx = this.context;
@@ -271,6 +289,22 @@ var BodyComponent = (function () {
         ctx.fill();
         ctx.closePath();
     };
+    BodyComponent.prototype.drawBricks = function () {
+        var ctx = this.context;
+        for (var c = 0; c < this.brickColumnCount; c++) {
+            for (var r = 0; r < this.brickRowCount; r++) {
+                var brickX = (c * (this.brickWidth + this.brickPadding)) + this.brickOffsetLeft;
+                var brickY = (r * (this.brickHeight + this.brickPadding)) + this.brickOffsetTop;
+                this.bricks[c][r].x = brickX;
+                this.bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
+                ctx.fillStyle = "#0095DD";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    };
     BodyComponent.prototype.draw = function () {
         var _this = this;
         requestAnimationFrame(function () {
@@ -278,6 +312,7 @@ var BodyComponent = (function () {
         });
         var ctx = this.context;
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawBricks();
         this.drawBall();
         this.drawPaddle();
         if (this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
