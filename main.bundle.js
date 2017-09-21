@@ -203,7 +203,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/block-game/block-game.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <button class=\"fa fa-angle-double-left button\" type=\"button\" \r\n        (mousedown)=\"leftMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n    <canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" ></canvas>\r\n    <button class=\"fa fa-angle-double-right button\" type=\"button\" \r\n        (mousedown)=\"rightMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n</div>"
+module.exports = "<div>\r\n    <button class=\"fa fa-angle-double-left button\" type=\"button\" \r\n        (mousedown)=\"leftMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n    <canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" (touchmove)=\"touchMove($event)\" ></canvas>\r\n    <button class=\"fa fa-angle-double-right button\" type=\"button\" \r\n        (mousedown)=\"rightMove($event)\" (mouseup)=\"notMove($event)\">  </button>\r\n</div>"
 
 /***/ }),
 
@@ -278,6 +278,13 @@ var BlockGameComponent = (function () {
         if (relativeX > 0 && relativeX < this.canvas.width) {
             this.paddleX = relativeX - this.paddleWidth / 2;
         }
+    };
+    BlockGameComponent.prototype.touchMove = function ($event) {
+        alert("터치 되냐?");
+        // var relativeX = $event.clientX - this.canvas.offsetLeft;
+        // if(relativeX > 0 && relativeX < this.canvas.width) {
+        //     this.paddleX = relativeX - this.paddleWidth/2;
+        // }
     };
     BlockGameComponent.prototype.drawBall = function () {
         var ctx = this.context;
