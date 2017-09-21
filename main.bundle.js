@@ -116,12 +116,14 @@ var AppComponent_1, _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__body_block_game_block_game_component__ = __webpack_require__("../../../../../src/app/body/block-game/block-game.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -149,6 +151,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6__body_body_component__["a" /* BodyComponent */],
             __WEBPACK_IMPORTED_MODULE_7__pipe_honor_pipe__["a" /* HonorPipe */],
             __WEBPACK_IMPORTED_MODULE_8__body_mouse_track_zone_mouse_track_zone_component__["a" /* MouseTrackZoneComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__body_block_game_block_game_component__["a" /* BlockGameComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -179,7 +182,7 @@ var LOG_LEVEL_TOKEN = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Inj
 
 /***/ }),
 
-/***/ "../../../../../src/app/body/body.component.css":
+/***/ "../../../../../src/app/body/block-game/block-game.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -187,7 +190,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@charset \"utf-8\";\r\n\r\n:root {\r\n    --margin-color: #5d9ab2;\r\n    --accent-color: #bf6a7a;\r\n    --dark-main-color: #2b5566;\r\n    --text-bright-color: #fff;\r\n    --icon-color: #fff;\r\n    --icon-bk-color: #ddd;\r\n    --large-width: 1000px;\r\n}\r\n\r\napp-body {\r\n    margin: 0;\r\n    font-family: '\\B9D1\\C740   \\ACE0\\B515',\r\n        'Apple SD Gothic Neo',\r\n        sans-serif;\r\n}\r\n\r\n/* 콘텐츠A 히어로 이미지 */\r\n.conA {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    height: 100vh;\r\n    min-height: 450px;\r\n    /* background-image: url(/assets/image/hero_blue.jpg); */\r\n    /* background-image: url(/assets/image/hero.jpg); */\r\n    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero.jpg);\r\n    /* background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero_blue.jpg); */\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: var(--text-bright-color);\r\n    color: #fff;\r\n    text-align: center;\r\n}\r\n\r\n.conA h1 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-family: 'Montesrrat', sans-serif;\r\n    font-size: 15vw;\r\n    letter-spacing: 0.2em;\r\n    margin-left: 0.2em;\r\n}\r\n\r\n.conA p {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n    font-size: 18px;\r\n}\r\n\r\n.conA img {\r\n    width: 20%;\r\n}\r\n\r\n.conA a {\r\n    display: inline-block;\r\n    margin-top: 20px;\r\n    padding: 10px 30px;\r\n    border: solid 3px currentColor;\r\n    border-radius: 6px;\r\n    background-color: rgb(106, 107, 191);\r\n    /* background-color: var(--accent-color); */\r\n    color: #fff;\r\n    font-size: 14px;\r\n    text-decoration: none;\r\n}\r\n\r\n.conA a:hover {\r\n    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));\r\n}\r\n\r\n/* 콘텐츠B: 개요(아이콘 + 글자) */\r\n.conB h2 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-size: 20px;\r\n}\r\n\r\n.conB p {\r\n    margin-top: 0;\r\n    margin-bottom: 20px;\r\n    font-size: 14px;\r\n    line-height: 1.8;\r\n    opacity:0.5\r\n}\r\n\r\n.conB a {\r\n    color: #5d9ab2;\r\n    /* color: var(--main-color); */\r\n    text-decoration: none;\r\n}\r\n\r\n.conB a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.conB .icon {\r\n    display: inline-block;\r\n    margin-bottom: 20px;\r\n    font-size: 40px;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    background-color: #ddd;\r\n    /* background-color: var(--icon-bk-color); */\r\n    color: #fff;\r\n    /* color: var(--icon-color); */\r\n}\r\n\r\n.conB .text{\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-bottom: 60px;\r\n    text-align: center;\r\n}\r\n\r\n.conB .container {\r\n    padding-top: 80px;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.blockGame {\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\n\r\n.blockGame .container {\r\n    background: #2b5566;\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .conA h1 {\r\n        font-size: 115px;\r\n    }\r\n\r\n    .conA p {\r\n        font-size: 24px;\r\n    }\r\n\r\n    .conB .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        max-width: 1000px;\r\n        /* max-width: var(--large-width); */\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .conB .text {\r\n        -webkit-box-flex: 1;\r\n            -ms-flex: 1;\r\n                flex: 1;\r\n    }\r\n}\r\n\r\n/* vietnamese */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/SKK6Nusyv8QPNMtI4j9J2yEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;\r\n}\r\n\r\n/* latin-ext */\r\n    @font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/gFXtEMCp1m_YzxsBpKl68iEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\r\n}\r\n\r\n/* latin */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');\r\n    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;\r\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -197,20 +200,19 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/body/body.component.html":
+/***/ "../../../../../src/app/body/block-game/block-game.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\" (click)=\"keyDown($event)\">\n        <canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" ></canvas>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+module.exports = "<canvas #myCanvas width=\"480\" height=\"320\"  (mousemove)=\"mouseMove($event)\" ></canvas>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/body/body.component.ts":
+/***/ "../../../../../src/app/body/block-game/block-game.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BodyComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlockGameComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -221,10 +223,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-var BodyComponent = (function () {
-    function BodyComponent(logger) {
-        this.logger = logger;
+var BlockGameComponent = (function () {
+    function BlockGameComponent() {
         this.brickRowCount = 3;
         this.brickColumnCount = 5;
         this.brickWidth = 75;
@@ -238,7 +238,7 @@ var BodyComponent = (function () {
         this.lives = 3;
         this.ballColor = "#0095DD";
     }
-    BodyComponent.prototype.ngOnInit = function () {
+    BlockGameComponent.prototype.ngOnInit = function () {
         this.canvas = this.myCanvas.nativeElement;
         this.context = this.canvas.getContext("2d");
         this.ballRadius = 10;
@@ -260,22 +260,13 @@ var BodyComponent = (function () {
         }
         this.draw();
     };
-    // TODO : 앞으로는 어디로 갈지 정해야 함.
-    BodyComponent.prototype.startManjoo = function () {
-        alert("잠시만요.. 열심히 만들고 있어요!! ^_^/");
-    };
-    BodyComponent.prototype.keyDown = function ($event) {
-        console.log("ddd");
-    };
-    BodyComponent.prototype.keyUp = function ($event) {
-    };
-    BodyComponent.prototype.mouseMove = function ($event) {
+    BlockGameComponent.prototype.mouseMove = function ($event) {
         var relativeX = $event.clientX - this.canvas.offsetLeft;
         if (relativeX > 0 && relativeX < this.canvas.width) {
             this.paddleX = relativeX - this.paddleWidth / 2;
         }
     };
-    BodyComponent.prototype.drawBall = function () {
+    BlockGameComponent.prototype.drawBall = function () {
         var ctx = this.context;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 10, 0, Math.PI * 2);
@@ -284,7 +275,7 @@ var BodyComponent = (function () {
         ctx.fill();
         ctx.closePath();
     };
-    BodyComponent.prototype.drawPaddle = function () {
+    BlockGameComponent.prototype.drawPaddle = function () {
         var ctx = this.context;
         ctx.beginPath();
         ctx.rect(this.paddleX, this.canvas.height - this.paddleHeight, this.paddleWidth, this.paddleHeight);
@@ -292,7 +283,7 @@ var BodyComponent = (function () {
         ctx.fill();
         ctx.closePath();
     };
-    BodyComponent.prototype.drawBricks = function () {
+    BlockGameComponent.prototype.drawBricks = function () {
         var ctx = this.context;
         for (var c = 0; c < this.brickColumnCount; c++) {
             for (var r = 0; r < this.brickRowCount; r++) {
@@ -310,13 +301,17 @@ var BodyComponent = (function () {
             }
         }
     };
-    BodyComponent.prototype.collisionDetection = function () {
+    BlockGameComponent.prototype.collisionDetection = function () {
         for (var c = 0; c < this.brickColumnCount; c++) {
             for (var r = 0; r < this.brickRowCount; r++) {
                 var b = this.bricks[c][r];
                 if (b.status == 1) {
                     if (this.x > b.x && this.x < b.x + this.brickWidth && this.y > b.y && this.y < b.y + this.brickHeight) {
                         this.dy = -(this.dy);
+                        var cr = Math.floor(Math.random() * 99); // 0 ~ 255 까지의 난수 얻어오기
+                        var cg = Math.floor(Math.random() * 99);
+                        var cb = Math.floor(Math.random() * 99);
+                        this.ballColor = "#" + cr + cg + cb;
                         b.status = 0;
                         console.log('!!!!');
                         this.score++;
@@ -329,19 +324,19 @@ var BodyComponent = (function () {
             }
         }
     };
-    BodyComponent.prototype.drawScore = function () {
+    BlockGameComponent.prototype.drawScore = function () {
         var ctx = this.context;
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
         ctx.fillText("Score: " + this.score, 8, 20);
     };
-    BodyComponent.prototype.drawLives = function () {
+    BlockGameComponent.prototype.drawLives = function () {
         var ctx = this.context;
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
         ctx.fillText("Lives: " + this.lives, this.canvas.width - 65, 20);
     };
-    BodyComponent.prototype.draw = function () {
+    BlockGameComponent.prototype.draw = function () {
         var _this = this;
         requestAnimationFrame(function () {
             _this.draw();
@@ -355,10 +350,6 @@ var BodyComponent = (function () {
         this.drawLives();
         this.collisionDetection();
         if (this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
-            var r = Math.floor(Math.random() * 99); // 0 ~ 255 까지의 난수 얻어오기
-            var g = Math.floor(Math.random() * 99);
-            var b = Math.floor(Math.random() * 99);
-            this.ballColor = "#" + r + g + b;
             this.dx = -(this.dx);
         }
         if (this.y + this.dy < this.ballRadius) {
@@ -391,12 +382,80 @@ var BodyComponent = (function () {
         this.x += this.dx;
         this.y += this.dy;
     };
-    return BodyComponent;
+    return BlockGameComponent;
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])("myCanvas"),
     __metadata("design:type", Object)
-], BodyComponent.prototype, "myCanvas", void 0);
+], BlockGameComponent.prototype, "myCanvas", void 0);
+BlockGameComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'app-block-game',
+        template: __webpack_require__("../../../../../src/app/body/block-game/block-game.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/body/block-game/block-game.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], BlockGameComponent);
+
+//# sourceMappingURL=block-game.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/body/body.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@charset \"utf-8\";\r\n\r\n:root {\r\n    --margin-color: #5d9ab2;\r\n    --accent-color: #bf6a7a;\r\n    --dark-main-color: #2b5566;\r\n    --text-bright-color: #fff;\r\n    --icon-color: #fff;\r\n    --icon-bk-color: #ddd;\r\n    --large-width: 1000px;\r\n}\r\n\r\napp-body {\r\n    margin: 0;\r\n    font-family: '\\B9D1\\C740   \\ACE0\\B515',\r\n        'Apple SD Gothic Neo',\r\n        sans-serif;\r\n}\r\n\r\n/* 콘텐츠A 히어로 이미지 */\r\n.conA {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    height: 100vh;\r\n    min-height: 450px;\r\n    /* background-image: url(/assets/image/hero_blue.jpg); */\r\n    /* background-image: url(/assets/image/hero.jpg); */\r\n    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero.jpg);\r\n    /* background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(/assets/image/hero_blue.jpg); */\r\n    background-position: center;\r\n    background-size: cover;\r\n    color: var(--text-bright-color);\r\n    color: #fff;\r\n    text-align: center;\r\n}\r\n\r\n.conA h1 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-family: 'Montesrrat', sans-serif;\r\n    font-size: 15vw;\r\n    letter-spacing: 0.2em;\r\n    margin-left: 0.2em;\r\n}\r\n\r\n.conA p {\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n    font-size: 18px;\r\n}\r\n\r\n.conA img {\r\n    width: 20%;\r\n}\r\n\r\n.conA a {\r\n    display: inline-block;\r\n    margin-top: 20px;\r\n    padding: 10px 30px;\r\n    border: solid 3px currentColor;\r\n    border-radius: 6px;\r\n    background-color: rgb(106, 107, 191);\r\n    /* background-color: var(--accent-color); */\r\n    color: #fff;\r\n    font-size: 14px;\r\n    text-decoration: none;\r\n}\r\n\r\n.conA a:hover {\r\n    background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));\r\n}\r\n\r\n/* 콘텐츠B: 개요(아이콘 + 글자) */\r\n.conB h2 {\r\n    margin-top: 0;\r\n    margin-bottom: 10px;\r\n    font-size: 20px;\r\n}\r\n\r\n.conB p {\r\n    margin-top: 0;\r\n    margin-bottom: 20px;\r\n    font-size: 14px;\r\n    line-height: 1.8;\r\n    opacity:0.5\r\n}\r\n\r\n.conB a {\r\n    color: #5d9ab2;\r\n    /* color: var(--main-color); */\r\n    text-decoration: none;\r\n}\r\n\r\n.conB a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.conB .icon {\r\n    display: inline-block;\r\n    margin-bottom: 20px;\r\n    font-size: 40px;\r\n    width: 2em;\r\n    line-height: 2em;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    background-color: #ddd;\r\n    /* background-color: var(--icon-bk-color); */\r\n    color: #fff;\r\n    /* color: var(--icon-color); */\r\n}\r\n\r\n.conB .text{\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-bottom: 60px;\r\n    text-align: center;\r\n}\r\n\r\n.conB .container {\r\n    padding-top: 80px;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.blockGame {\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\n\r\n.blockGame .container {\r\n    background: #2b5566;\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    .conA h1 {\r\n        font-size: 115px;\r\n    }\r\n\r\n    .conA p {\r\n        font-size: 24px;\r\n    }\r\n\r\n    .conB .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        max-width: 1000px;\r\n        /* max-width: var(--large-width); */\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .conB .text {\r\n        -webkit-box-flex: 1;\r\n            -ms-flex: 1;\r\n                flex: 1;\r\n    }\r\n}\r\n\r\n/* vietnamese */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/SKK6Nusyv8QPNMtI4j9J2yEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;\r\n}\r\n\r\n/* latin-ext */\r\n    @font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/gFXtEMCp1m_YzxsBpKl68iEAvth_LlrfE80CYdSH47w.woff2) format('woff2');\r\n    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\r\n}\r\n\r\n/* latin */\r\n@font-face {\r\n    font-family: 'Montserrat';\r\n    font-style: normal;\r\n    font-weight: 400;\r\n    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');\r\n    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/body/body.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"bolckGame\">\n    <div class=\"container\" (click)=\"keyDown($event)\">\n        <app-block-game></app-block-game>\n    </div>\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/body/body.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BodyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BodyComponent = (function () {
+    function BodyComponent(logger) {
+        this.logger = logger;
+    }
+    BodyComponent.prototype.ngOnInit = function () {
+    };
+    // TODO : 앞으로는 어디로 갈지 정해야 함.
+    BodyComponent.prototype.startManjoo = function () {
+        alert("잠시만요.. 열심히 만들고 있어요!! ^_^/");
+    };
+    return BodyComponent;
+}());
 BodyComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-body',
