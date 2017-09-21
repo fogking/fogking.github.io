@@ -232,7 +232,10 @@ var BodyComponent = (function () {
         this.brickPadding = 10;
         this.brickOffsetTop = 30;
         this.brickOffsetLeft = 30;
+        this.score = 0;
         this.bricks = [];
+        // 내가 추가한거
+        this.isLive = true;
     }
     BodyComponent.prototype.ngOnInit = function () {
         this.canvas = this.myCanvas.nativeElement;
@@ -251,7 +254,7 @@ var BodyComponent = (function () {
         for (var c = 0; c < this.brickColumnCount; c++) {
             this.bricks[c] = [];
             for (var r = 0; r < this.brickRowCount; r++) {
-                this.bricks[c][r] = { x: 0, y: 0 };
+                this.bricks[c][r] = { x: 0, y: 0, status: 1 };
             }
         }
         this.draw();
@@ -293,17 +296,44 @@ var BodyComponent = (function () {
         var ctx = this.context;
         for (var c = 0; c < this.brickColumnCount; c++) {
             for (var r = 0; r < this.brickRowCount; r++) {
-                var brickX = (c * (this.brickWidth + this.brickPadding)) + this.brickOffsetLeft;
-                var brickY = (r * (this.brickHeight + this.brickPadding)) + this.brickOffsetTop;
-                this.bricks[c][r].x = brickX;
-                this.bricks[c][r].y = brickY;
-                ctx.beginPath();
-                ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
-                ctx.fillStyle = "#0095DD";
-                ctx.fill();
-                ctx.closePath();
+                if (this.bricks[c][r].status == 1) {
+                    var brickX = (c * (this.brickWidth + this.brickPadding)) + this.brickOffsetLeft;
+                    var brickY = (r * (this.brickHeight + this.brickPadding)) + this.brickOffsetTop;
+                    this.bricks[c][r].x = brickX;
+                    this.bricks[c][r].y = brickY;
+                    ctx.beginPath();
+                    ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
+                    ctx.fillStyle = "#0095DD";
+                    ctx.fill();
+                    ctx.closePath();
+                }
             }
         }
+    };
+    BodyComponent.prototype.collisionDetection = function () {
+        for (var c = 0; c < this.brickColumnCount; c++) {
+            for (var r = 0; r < this.brickRowCount; r++) {
+                var b = this.bricks[c][r];
+                if (b.status == 1) {
+                    if (this.x > b.x && this.x < b.x + this.brickWidth && this.y > b.y && this.y < b.y + this.brickHeight) {
+                        this.dy = -(this.dy);
+                        b.status = 0;
+                        console.log('!!!!');
+                        this.score++;
+                        if (this.score == this.brickRowCount * this.brickColumnCount) {
+                            alert("YOU WIN, CONGRATS!");
+                            // TODO 캔버스 리로드...
+                        }
+                    }
+                }
+            }
+        }
+    };
+    BodyComponent.prototype.drawScore = function () {
+        var ctx = this.context;
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Score: " + this.score, 8, 20);
     };
     BodyComponent.prototype.draw = function () {
         var _this = this;
@@ -315,11 +345,27 @@ var BodyComponent = (function () {
         this.drawBricks();
         this.drawBall();
         this.drawPaddle();
+        this.drawScore();
+        this.collisionDetection();
         if (this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < this.ballRadius) {
             this.dx = -(this.dx);
         }
-        if (this.y + this.dy > this.canvas.height - this.ballRadius || this.y + this.dy < this.ballRadius) {
+        if (this.y + this.dy < this.ballRadius) {
             this.dy = -(this.dy);
+        }
+        else if (this.y + this.dy > this.canvas.height - this.ballRadius) {
+            if (this.x > this.paddleX && this.x < this.paddleX + this.paddleWidth) {
+                if (this.y - this.paddleHeight) {
+                    this.dy = -(this.dy);
+                }
+            }
+            else {
+                if (this.isLive) {
+                    alert("GAME OVER");
+                    // TODO 캔버스 리로드...
+                }
+                this.isLive = false;
+            }
         }
         if (this.rightPressed && this.paddleX < this.canvas.width - this.paddleWidth) {
             this.paddleX += 7;
