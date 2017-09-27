@@ -716,10 +716,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var HeaderComponent = (function () {
     function HeaderComponent() {
-        this.isToggle = false;
+        this.isToggle = true;
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.headShow = this.headToggle.nativeElement;
+        this.headShow.hidden = this.isToggle;
     };
     HeaderComponent.prototype.menuClick = function () {
         if (this.isToggle == true) {
