@@ -631,7 +631,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n.filter {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n}\r\n\r\n.filter .container {\r\n    display: inline-block;\r\n    margin-top: 20px;\r\n    padding: 10px 30px;\r\n    border: solid 3px currentColor;\r\n    background-color: rgb(106,107,191);\r\n    color: #fff;\r\n    font-size: 14px;\r\n    text-decoration: none;\r\n    text-align: center;\r\n\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -644,7 +644,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/food-bilder/food-bilder.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  food-bilder works!\r\n</p>\r\n"
+module.exports = "<div>\r\n  <section class=\"filter\">\r\n    <div class=\"container\">\r\n      재료 필터<i class=\"fa fa-arrow-right\"></i> \r\n      <input type=\"text\">\r\n    </div>\r\n  </section>\r\n  <section class=\"contents\">\r\n    <!-- ingredient[재료] -->\r\n    <div class=\"container\">\r\n      <div class=\"leftContanier\">\r\n        <div class=\"ingredientList\">\r\n          <select name='ingredient' size=6>\r\n            <option value=\"oil\">식용유</option>\r\n            <option value=\"egg\">달걀</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"rightContanier\">\r\n\r\n      </div>\r\n    </div>\r\n  </section>\r\n</div>"
 
 /***/ }),
 
