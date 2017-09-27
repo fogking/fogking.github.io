@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <!-- <h1>\n    {{title | uppercase | honor}}\n  </h1> -->\n  \n  <!-- <app-header></app-header> -->\n  <app-body></app-body>\n  <app-footer></app-footer>\n  \n</div>\n\n\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div>\n  <!-- <h1>\n    {{title | uppercase | honor}}\n  </h1> -->\n  \n  <app-header></app-header>\n  <app-body></app-body>\n  <app-footer></app-footer>\n  \n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -108,15 +108,15 @@ var AppComponent_1, _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__body_body_component__ = __webpack_require__("../../../../../src/app/body/body.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipe_honor_pipe__ = __webpack_require__("../../../../../src/app/pipe/honor.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__body_mouse_track_zone_mouse_track_zone_component__ = __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__body_block_game_block_game_component__ = __webpack_require__("../../../../../src/app/body/block-game/block-game.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__body_body_component__ = __webpack_require__("../../../../../src/app/body/body.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pipe_honor_pipe__ = __webpack_require__("../../../../../src/app/pipe/honor.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__body_mouse_track_zone_mouse_track_zone_component__ = __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__body_block_game_block_game_component__ = __webpack_require__("../../../../../src/app/body/block-game/block-game.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -147,11 +147,11 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_4__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__body_body_component__["a" /* BodyComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__pipe_honor_pipe__["a" /* HonorPipe */],
-            __WEBPACK_IMPORTED_MODULE_7__body_mouse_track_zone_mouse_track_zone_component__["a" /* MouseTrackZoneComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__body_block_game_block_game_component__["a" /* BlockGameComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__body_body_component__["a" /* BodyComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__pipe_honor_pipe__["a" /* HonorPipe */],
+            __WEBPACK_IMPORTED_MODULE_8__body_mouse_track_zone_mouse_track_zone_component__["a" /* MouseTrackZoneComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__body_block_game_block_game_component__["a" /* BlockGameComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__["a" /* FooterComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -159,8 +159,8 @@ AppModule = __decorate([
         ],
         providers: [
             // MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN , useValue: LogLevel.INFO},
-            __WEBPACK_IMPORTED_MODULE_8__service_my_special_logger_service__["a" /* MySpecialLoggerService */],
-            __WEBPACK_IMPORTED_MODULE_9__service_another_logger_service__["a" /* AnotherLoggerService */], { provide: __WEBPACK_IMPORTED_MODULE_11__app_token__["a" /* LOG_LEVEL_TOKEN */], useValue: __WEBPACK_IMPORTED_MODULE_10__service_log_level_enum__["a" /* LogLevel */].INFO }
+            __WEBPACK_IMPORTED_MODULE_9__service_my_special_logger_service__["a" /* MySpecialLoggerService */],
+            __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__["a" /* AnotherLoggerService */], { provide: __WEBPACK_IMPORTED_MODULE_12__app_token__["a" /* LOG_LEVEL_TOKEN */], useValue: __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__["a" /* LogLevel */].INFO }
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
     })
@@ -681,7 +681,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\nheader {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 100;\r\n    width: 100%;\r\n    background-color: rgba(255,255,255,0.9);\r\n}\r\n\r\n.headA {\r\n    display: inline-block;\r\n    line-height: 70px;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    background-color: #5D9AB2;\r\n    color: #fff;\r\n    font-family: 'Montserrat',sans-serif;\r\n    font-size: 24px;\r\n    text-decoration: none;\r\n}\r\n\r\n.headB ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n}\r\n\r\n.headB a {\r\n    display: block;\r\n    padding: 15px;\r\n    color: inherit;\r\n    font-size: 12px;\r\n    text-decoration: none;\r\n}\r\n\r\n.headB a:hover {\r\n    background-color: rgba(0,0,0,0.3);\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    header .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-align: center;\r\n            -ms-flex-align: center;\r\n                align-items: center;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n        max-width: 1000px;\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .headB {\r\n        display: block !important;\r\n    }\r\n\r\n    .headB ul {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n    }\r\n\r\n    .headC {\r\n        display: none;\r\n    }\r\n\r\n    \r\n}\r\n\r\n@media (max-width: 767px) {\r\n    /* 작은 화면 적용 설정 */\r\n    header .container-small {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-align: center;\r\n            -ms-flex-align: center;\r\n                align-items: center;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n    }\r\n\r\n    .headB {\r\n        display: none;\r\n    }\r\n\r\n    .headC {\r\n        margin-right: 10px;\r\n        padding : 0;\r\n        border: none;\r\n        outline: none;\r\n        background: none;\r\n        font-size: 28px;\r\n        opacity: 0.5;\r\n        cursor: pointer;\r\n    }\r\n\r\n    .headC:hover {\r\n        opacity: 0.3;\r\n    }\r\n\r\n\r\n}", ""]);
 
 // exports
 
@@ -694,7 +694,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"none\" style=\"background-color: lightblue;\"> header </div>"
+module.exports = "<header>\r\n    <div class=\"container\">\r\n        <div class=\"container-small\">\r\n            <a href=\"http://justjoo.co.kr\" class=\"headA\">MANJOO</a>\r\n            <button type=\"button\" class=\"headC\" (click)=\"menuClick()\">\r\n                <span class=\"fa fa-bars\" title=\"MENU\"></span>\r\n            </button>\r\n        </div>\r\n        <!-- <nav class=\"headB\"> -->\r\n        <nav class=\"headB\" ng-show=\"false\">\r\n            <ul>\r\n                <li><a href=\"http://justjoo.co.kr\">HOME</a></li>\r\n                <li><a href=\"#\">CONTENTS</a></li>\r\n                <li><a href=\"#\">소개</a></li>\r\n                <li><a href=\"#\">문의</a></li>\r\n            </ul>\r\n        </nav>\r\n    </div>\r\n</header>"
 
 /***/ }),
 
@@ -716,8 +716,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var HeaderComponent = (function () {
     function HeaderComponent() {
+        this.isToggle = false;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent.prototype.menuClick = function () {
+        if (this.isToggle == true) {
+            this.isToggle = false;
+        }
+        else {
+            this.isToggle = true;
+        }
+        alert(this.isToggle);
     };
     return HeaderComponent;
 }());
