@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div>\n  <!-- <h1>\n    {{title | uppercase | honor}}\n  </h1> -->\n  \n  <app-header></app-header>\n  <app-body></app-body>\n  <app-footer></app-footer>\n  \n</div>\n\n\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div>\r\n  <!-- <h1>\r\n    {{title | uppercase | honor}}\r\n  </h1> -->\r\n\r\n  <!-- <app-body></app-body> -->\r\n<router-outlet></router-outlet>\r\n</div>\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ var AppComponent = AppComponent_1 = (function () {
 }());
 AppComponent.CHK_KEYUP_WAIT_SEC = 5000;
 AppComponent = AppComponent_1 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -106,17 +106,19 @@ var AppComponent_1, _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__body_body_component__ = __webpack_require__("../../../../../src/app/body/body.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pipe_honor_pipe__ = __webpack_require__("../../../../../src/app/pipe/honor.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__body_mouse_track_zone_mouse_track_zone_component__ = __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__body_block_game_block_game_component__ = __webpack_require__("../../../../../src/app/body/block-game/block-game.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__body_body_component__ = __webpack_require__("../../../../../src/app/body/body.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pipe_honor_pipe__ = __webpack_require__("../../../../../src/app/pipe/honor.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__body_mouse_track_zone_mouse_track_zone_component__ = __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_my_special_logger_service__ = __webpack_require__("../../../../../src/app/service/my-special-logger.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_another_logger_service__ = __webpack_require__("../../../../../src/app/service/another-logger.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_log_level_enum__ = __webpack_require__("../../../../../src/app/service/log-level.enum.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_token__ = __webpack_require__("../../../../../src/app/app.token.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__body_block_game_block_game_component__ = __webpack_require__("../../../../../src/app/body/block-game/block-game.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__food_bilder_food_bilder_component__ = __webpack_require__("../../../../../src/app/food-bilder/food-bilder.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -137,32 +139,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__body_body_component__["a" /* BodyComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__pipe_honor_pipe__["a" /* HonorPipe */],
-            __WEBPACK_IMPORTED_MODULE_8__body_mouse_track_zone_mouse_track_zone_component__["a" /* MouseTrackZoneComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__body_block_game_block_game_component__["a" /* BlockGameComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__body_body_component__["a" /* BodyComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__pipe_honor_pipe__["a" /* HonorPipe */],
+            __WEBPACK_IMPORTED_MODULE_9__body_mouse_track_zone_mouse_track_zone_component__["a" /* MouseTrackZoneComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__body_block_game_block_game_component__["a" /* BlockGameComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__food_bilder_food_bilder_component__["a" /* FoodBilderComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot([
+                { path: '', redirectTo: 'home', pathMatch: 'full' },
+                { path: 'home', component: __WEBPACK_IMPORTED_MODULE_7__body_body_component__["a" /* BodyComponent */] },
+                { path: 'food', component: __WEBPACK_IMPORTED_MODULE_15__food_bilder_food_bilder_component__["a" /* FoodBilderComponent */] },
+                { path: '**', redirectTo: 'home' }
+            ])
         ],
         providers: [
             // MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN , useValue: LogLevel.INFO},
-            __WEBPACK_IMPORTED_MODULE_9__service_my_special_logger_service__["a" /* MySpecialLoggerService */],
-            __WEBPACK_IMPORTED_MODULE_10__service_another_logger_service__["a" /* AnotherLoggerService */], { provide: __WEBPACK_IMPORTED_MODULE_12__app_token__["a" /* LOG_LEVEL_TOKEN */], useValue: __WEBPACK_IMPORTED_MODULE_11__service_log_level_enum__["a" /* LogLevel */].INFO }
+            __WEBPACK_IMPORTED_MODULE_10__service_my_special_logger_service__["a" /* MySpecialLoggerService */],
+            __WEBPACK_IMPORTED_MODULE_11__service_another_logger_service__["a" /* AnotherLoggerService */], { provide: __WEBPACK_IMPORTED_MODULE_13__app_token__["a" /* LOG_LEVEL_TOKEN */], useValue: __WEBPACK_IMPORTED_MODULE_12__service_log_level_enum__["a" /* LogLevel */].INFO }
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -177,7 +188,7 @@ AppModule = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOG_LEVEL_TOKEN; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 
-var LOG_LEVEL_TOKEN = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('logLevel');
+var LOG_LEVEL_TOKEN = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* InjectionToken */]('logLevel');
 //# sourceMappingURL=app.token.js.map
 
 /***/ }),
@@ -451,11 +462,11 @@ var BlockGameComponent = (function () {
     return BlockGameComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])("myCanvas"),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])("myCanvas"),
     __metadata("design:type", Object)
 ], BlockGameComponent.prototype, "myCanvas", void 0);
 BlockGameComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-block-game',
         template: __webpack_require__("../../../../../src/app/body/block-game/block-game.component.html"),
         styles: [__webpack_require__("../../../../../src/app/body/block-game/block-game.component.css")]
@@ -488,7 +499,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/body/body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<script src=\"https://use.fontawesom.com/926fe18a63.js\"></script>\n\n<section class=\"conA\">\n    <div calss=\"container\">\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\n        <h1>MANJOO</h1>\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\n        <a href=\"#\"  (click)=\"startManjoo()\">만주 시작하기</a>\n    </div>\n</section>\n\n<section class=\"conB\">\n    <div class=\"container\">\n        <div class=\"text\">\n            <span class=\"fa fa-home icon\"></span>\n            <h2>만주란?</h2>\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-gears icon\"></span>\n            <h2>서비스가 만들어 지는 과정은?</h2>\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n        <div class=\"text\">\n            <span class=\"fa fa-rocket icon\"></span>\n            <h2>거시기?</h2>\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\n            <a href=\"#\">MORE...\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<!-- 별돌깨기 게임.. -->\n<!-- <section class=\"bolckGame\">\n    <div class=\"container\">\n        <app-block-game></app-block-game>\n    </div>\n</section> -->\n\n<section class=\"conC\">\n    <div class=\"container\">\n        <div class=\"photo\"></div>\n        <div class=\"text\">\n            <h2>\n                이제 매일 무얼 만들어 먹을지 고민하지 않아도 됩니다.\n            </h2>\n            <p>\n                만주의 첫번째 서비스인 푸드팩토리(가칭)에서는 무얼먹을지 이제 고민하지 않아도 가지고 있는 재료로 무얼 만들 수 있는지 알려줍니다.\n            </p>\n            <a href=\"#\"> let's eat\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n    </div>\n</section>\n\n<section class=\"conD\">\n    <div class=\"container\">\n        <div class=\"photo\"></div>\n        <div class=\"text\">\n            <h2>\n                이제 어떤 게임을 할지 고민하지 않아도 됩니다.\n            </h2>\n            <p>\n                만주의 두번째 서비스인 만겜(가칭)에서는 재미있는 게임들을 할 수 있도록 도와줍니다.\n            </p>\n            <a href=\"#\"> let's game\n                <span class=\"fa fa-chevron-right\"></span>\n            </a>\n        </div>\n\n    </div>\n\n</section>\n      \n\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\n<div class=\"row buttons\">\n    <button type=\"button\" (click)=\"inc()\">+</button>\n    <button type=\"button\" (click)=\"dec()\">-</button>\n</div>\n<div class=\"row manual-action\">\n    <label for=\"manual-val\">수동 수정:</label>\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\n\n    \n</div> -->\n\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\n\n        \n"
+module.exports = "  \r\n<app-header></app-header>\r\n<section class=\"conA\">\r\n    <div calss=\"container\">\r\n        <!-- <img src=\"/assets/image/MANJOO_CI.svg\" alt=\"\"> -->\r\n        <h1>MANJOO</h1>\r\n        <p>매일 매일 즐겁게 코딩하는 회사</p>\r\n        <a [routerLink]=\"['/food']\" >만주 시작하기</a>\r\n    </div>\r\n</section>\r\n\r\n<section class=\"conB\">\r\n    <div class=\"container\">\r\n        <div class=\"text\">\r\n            <span class=\"fa fa-home icon\"></span>\r\n            <h2>만주란?</h2>\r\n            <p>만주 처럼 달콤한 서비스들을 제공하는 회사입니다.</p>\r\n            <a href=\"#\">MORE...\r\n                <span class=\"fa fa-chevron-right\"></span>\r\n            </a>\r\n        </div>\r\n        <div class=\"text\">\r\n            <span class=\"fa fa-gears icon\"></span>\r\n            <h2>서비스가 만들어 지는 과정은?</h2>\r\n            <p>코딩 코딩.. 무한 삽질 코딩을 통해서 만들어지고 있습니다. ^__^</p>\r\n            <a href=\"#\">MORE...\r\n                <span class=\"fa fa-chevron-right\"></span>\r\n            </a>\r\n        </div>\r\n        <div class=\"text\">\r\n            <span class=\"fa fa-rocket icon\"></span>\r\n            <h2>거시기?</h2>\r\n            <p>마땅히 즐길 서비스가 없을 때 서비스를 추천해줍니다.</p>\r\n            <a href=\"#\">MORE...\r\n                <span class=\"fa fa-chevron-right\"></span>\r\n            </a>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n<!-- 별돌깨기 게임.. -->\r\n<!-- <section class=\"bolckGame\">\r\n    <div class=\"container\">\r\n        <app-block-game></app-block-game>\r\n    </div>\r\n</section> -->\r\n\r\n<section class=\"conC\">\r\n    <div class=\"container\">\r\n        <div class=\"photo\"></div>\r\n        <div class=\"text\">\r\n            <h2>\r\n                이제 매일 무얼 만들어 먹을지 고민하지 않아도 됩니다.\r\n            </h2>\r\n            <p>\r\n                만주의 첫번째 서비스인 푸드팩토리(가칭)에서는 무얼먹을지 이제 고민하지 않아도 가지고 있는 재료로 무얼 만들 수 있는지 알려줍니다.\r\n            </p>\r\n            <a [routerLink]=\"['/food']\" > let's eat\r\n                <span class=\"fa fa-chevron-right\"></span>\r\n            </a>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n<section class=\"conD\">\r\n    <div class=\"container\">\r\n        <div class=\"photo\"></div>\r\n        <div class=\"text\">\r\n            <h2>\r\n                이제 어떤 게임을 할지 고민하지 않아도 됩니다.\r\n            </h2>\r\n            <p>\r\n                만주의 두번째 서비스인 만겜(가칭)에서는 재미있는 게임들을 할 수 있도록 도와줍니다.\r\n            </p>\r\n            <a href=\"#\"> let's game\r\n                <span class=\"fa fa-chevron-right\"></span>\r\n            </a>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</section>\r\n      \r\n<app-footer></app-footer>\r\n\r\n\r\n<!-- <div class=\"counter\" [style.backgroundColor]=\"colorByValue()\">{{curVal}}</div>\r\n<div class=\"row buttons\">\r\n    <button type=\"button\" (click)=\"inc()\">+</button>\r\n    <button type=\"button\" (click)=\"dec()\">-</button>\r\n</div>\r\n<div class=\"row manual-action\">\r\n    <label for=\"manual-val\">수동 수정:</label>\r\n    <input type=\"number\" id=\"manual-val\" [(ngModel)]=\"manualVal\">\r\n    <button type=\"button\" (click)=\"setValueForcibly()\">강제 저장</button>\r\n\r\n    \r\n</div> -->\r\n\r\n<!-- <app-mouse-track-zone></app-mouse-track-zone> -->\r\n\r\n        \r\n"
 
 /***/ }),
 
@@ -523,7 +534,7 @@ var BodyComponent = (function () {
     return BodyComponent;
 }());
 BodyComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-body',
         template: __webpack_require__("../../../../../src/app/body/body.component.html"),
         styles: [__webpack_require__("../../../../../src/app/body/body.component.css")],
@@ -598,17 +609,78 @@ var MouseTrackZoneComponent = (function () {
     return MouseTrackZoneComponent;
 }());
 MouseTrackZoneComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-mouse-track-zone',
         template: __webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.html"),
         styles: [__webpack_require__("../../../../../src/app/body/mouse-track-zone/mouse-track-zone.component.css")],
     }),
-    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* Host */])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Q" /* Optional */])()),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Host */])()), __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Optional */])()),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_my_special_logger_service__["a" /* MySpecialLoggerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_another_logger_service__["a" /* AnotherLoggerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_another_logger_service__["a" /* AnotherLoggerService */]) === "function" && _b || Object])
 ], MouseTrackZoneComponent);
 
 var _a, _b;
 //# sourceMappingURL=mouse-track-zone.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/food-bilder/food-bilder.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/food-bilder/food-bilder.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  food-bilder works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/food-bilder/food-bilder.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FoodBilderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FoodBilderComponent = (function () {
+    function FoodBilderComponent() {
+    }
+    FoodBilderComponent.prototype.ngOnInit = function () {
+    };
+    return FoodBilderComponent;
+}());
+FoodBilderComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-food-bilder',
+        template: __webpack_require__("../../../../../src/app/food-bilder/food-bilder.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/food-bilder/food-bilder.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], FoodBilderComponent);
+
+//# sourceMappingURL=food-bilder.component.js.map
 
 /***/ }),
 
@@ -661,7 +733,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-footer',
         template: __webpack_require__("../../../../../src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../src/app/footer/footer.component.css")]
@@ -734,11 +806,11 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])("headToggle"),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])("headToggle"),
     __metadata("design:type", Object)
 ], HeaderComponent.prototype, "headToggle", void 0);
 HeaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-header',
         template: __webpack_require__("../../../../../src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/header/header.component.css")]
@@ -772,7 +844,7 @@ var HonorPipe = (function () {
     return HonorPipe;
 }());
 HonorPipe = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["V" /* Pipe */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
         name: 'honor'
     })
 ], HonorPipe);
@@ -833,8 +905,8 @@ var AnotherLoggerService = (function (_super) {
     return AnotherLoggerService;
 }(__WEBPACK_IMPORTED_MODULE_3__logger_service__["a" /* LoggerService */]));
 AnotherLoggerService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__app_token__["a" /* LOG_LEVEL_TOKEN */])),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__app_token__["a" /* LOG_LEVEL_TOKEN */])),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */]) === "function" && _a || Object])
 ], AnotherLoggerService);
 
@@ -962,8 +1034,8 @@ var MySpecialLoggerService = (function (_super) {
     return MySpecialLoggerService;
 }(__WEBPACK_IMPORTED_MODULE_4__logger_service__["a" /* LoggerService */]));
 MySpecialLoggerService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */])(__WEBPACK_IMPORTED_MODULE_3__app_token__["a" /* LOG_LEVEL_TOKEN */])),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_3__app_token__["a" /* LOG_LEVEL_TOKEN */])),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__log_level_enum__["a" /* LogLevel */]) === "function" && _a || Object])
 ], MySpecialLoggerService);
 
@@ -1003,7 +1075,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
