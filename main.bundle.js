@@ -681,7 +681,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\r\n\r\nheader {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 100;\r\n    width: 100%;\r\n    background-color: rgba(255,255,255,0.9);\r\n}\r\n\r\n.headA {\r\n    display: inline-block;\r\n    line-height: 70px;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    background-color: #5D9AB2;\r\n    color: #fff;\r\n    font-family: 'Montserrat',sans-serif;\r\n    font-size: 24px;\r\n    text-decoration: none;\r\n}\r\n\r\n.headB ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n}\r\n\r\n.headB a {\r\n    display: block;\r\n    padding: 15px;\r\n    color: inherit;\r\n    font-size: 12px;\r\n    text-decoration: none;\r\n}\r\n\r\n.headB a:hover {\r\n    background-color: rgba(0,0,0,0.3);\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    header .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-align: center;\r\n            -ms-flex-align: center;\r\n                align-items: center;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n        max-width: 1000px;\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .headB {\r\n        display: block !important;\r\n    }\r\n\r\n    .headB ul {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n    }\r\n\r\n    .headC {\r\n        display: none;\r\n    }\r\n\r\n    \r\n}\r\n\r\n@media (max-width: 767px) {\r\n    /* 작은 화면 적용 설정 */\r\n    header .container-small {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-align: center;\r\n            -ms-flex-align: center;\r\n                align-items: center;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n    }\r\n\r\n    .headB {\r\n        display: none;\r\n    }\r\n\r\n    .headC {\r\n        margin-right: 10px;\r\n        padding : 0;\r\n        border: none;\r\n        outline: none;\r\n        background: none;\r\n        font-size: 28px;\r\n        opacity: 0.5;\r\n        cursor: pointer;\r\n    }\r\n\r\n    .headC:hover {\r\n        opacity: 0.3;\r\n    }\r\n\r\n\r\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\nheader {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 100;\r\n    width: 100%;\r\n    background-color: rgba(255,255,255,0.9);\r\n}\r\n\r\n.headA {\r\n    display: inline-block;\r\n    line-height: 70px;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    background-color: #5D9AB2;\r\n    color: #fff;\r\n    font-family: 'Montserrat',sans-serif;\r\n    font-size: 24px;\r\n    text-decoration: none;\r\n}\r\n\r\n.headB ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n}\r\n\r\n.headB a {\r\n    display: block;\r\n    padding: 15px;\r\n    color: inherit;\r\n    font-size: 12px;\r\n    text-decoration: none;\r\n}\r\n\r\n.headB a:hover {\r\n    background-color: rgba(0,0,0,0.3);\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    header .container {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-align: center;\r\n            -ms-flex-align: center;\r\n                align-items: center;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n        max-width: 1000px;\r\n        margin-left: auto;\r\n        margin-right: auto;\r\n    }\r\n\r\n    .headB {\r\n        display: block !important;\r\n    }\r\n\r\n    .headB ul {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n    }\r\n\r\n    .headC {\r\n        display: none;\r\n    }\r\n\r\n    \r\n}\r\n\r\n@media (max-width: 767px) {\r\n    /* 작은 화면 적용 설정 */\r\n    header .container-small {\r\n        display: -webkit-box;\r\n        display: -ms-flexbox;\r\n        display: flex;\r\n        -webkit-box-align: center;\r\n            -ms-flex-align: center;\r\n                align-items: center;\r\n        -webkit-box-pack: justify;\r\n            -ms-flex-pack: justify;\r\n                justify-content: space-between;\r\n    }\r\n\r\n    .headB {\r\n        /* display: none; */\r\n    }\r\n\r\n    .headC {\r\n        margin-right: 10px;\r\n        padding : 0;\r\n        border: none;\r\n        outline: none;\r\n        background: none;\r\n        font-size: 28px;\r\n        opacity: 0.5;\r\n        cursor: pointer;\r\n    }\r\n\r\n    .headC:hover {\r\n        opacity: 0.3;\r\n    }\r\n\r\n\r\n}", ""]);
 
 // exports
 
@@ -694,7 +694,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n    <div class=\"container\">\r\n        <div class=\"container-small\">\r\n            <a href=\"http://justjoo.co.kr\" class=\"headA\">MANJOO</a>\r\n            <button type=\"button\" class=\"headC\" (click)=\"menuClick()\">\r\n                <span class=\"fa fa-bars\" title=\"MENU\"></span>\r\n            </button>\r\n        </div>\r\n        <!-- <nav class=\"headB\"> -->\r\n        <nav class=\"headB\" ng-show=\"false\">\r\n            <ul>\r\n                <li><a href=\"http://justjoo.co.kr\">HOME</a></li>\r\n                <li><a href=\"#\">CONTENTS</a></li>\r\n                <li><a href=\"#\">소개</a></li>\r\n                <li><a href=\"#\">문의</a></li>\r\n            </ul>\r\n        </nav>\r\n    </div>\r\n</header>"
+module.exports = "<header>\r\n    <div class=\"container\">\r\n        <div class=\"container-small\">\r\n            <a href=\"http://justjoo.co.kr\" class=\"headA\">MANJOO</a>\r\n            <button type=\"button\" class=\"headC\" (click)=\"menuClick()\">\r\n                <span class=\"fa fa-bars\" title=\"MENU\"></span>\r\n            </button>\r\n        </div>\r\n        <!-- <nav class=\"headB\"> -->\r\n        <nav class=\"headB\" #headToggle>\r\n            <ul>\r\n                <li><a href=\"http://justjoo.co.kr\">HOME</a></li>\r\n                <li><a href=\"#\">CONTENTS</a></li>\r\n                <li><a href=\"#\">소개</a></li>\r\n                <li><a href=\"#\">문의</a></li>\r\n            </ul>\r\n        </nav>\r\n    </div>\r\n</header>"
 
 /***/ }),
 
@@ -719,6 +719,7 @@ var HeaderComponent = (function () {
         this.isToggle = false;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+        this.headShow = this.headToggle.nativeElement;
     };
     HeaderComponent.prototype.menuClick = function () {
         if (this.isToggle == true) {
@@ -727,10 +728,14 @@ var HeaderComponent = (function () {
         else {
             this.isToggle = true;
         }
-        alert(this.isToggle);
+        this.headShow.hidden = this.isToggle;
     };
     return HeaderComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])("headToggle"),
+    __metadata("design:type", Object)
+], HeaderComponent.prototype, "headToggle", void 0);
 HeaderComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-header',
