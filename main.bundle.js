@@ -644,7 +644,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/food-bilder/food-bilder.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <section class=\"filter\">\r\n    <div class=\"container\">\r\n      재료 필터<i class=\"fa fa-arrow-right\"></i> \r\n      <input type=\"text\">\r\n    </div>\r\n  </section>\r\n  <section class=\"contents\">\r\n    <!-- ingredient[재료] -->\r\n    <div class=\"container\">\r\n      <div class=\"leftContanier\">\r\n        <div>\r\n          <label>재료 목록</label>\r\n        </div>\r\n        <div>\r\n          <select class=\"ingredient\" name='ingredient' size=6>\r\n            <option value=\"oil\">식용유</option>\r\n            <option value=\"egg\">달걀</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"rightContanier\">\r\n        <div>\r\n          <label>냉장고</label>\r\n        </div>\r\n        <div>\r\n          <input class=\"fridge\" type=\"text\">\r\n        </div>\r\n        <div>\r\n          <label>레시피 리스트</label>\r\n        </div>\r\n        <div>\r\n          <table class=\"table\">\r\n            <tr>\r\n              <td>계란 후라이</td>\r\n            </tr>\r\n            <tr>\r\n              <td>계란 후라이</td>\r\n            </tr>\r\n            <tr>\r\n                <td>계란 후라이</td>\r\n              </tr>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n</div>"
+module.exports = "<div>\r\n  <section class=\"filter\">\r\n    <div class=\"container\">\r\n      재료 필터<i class=\"fa fa-arrow-right\"></i> \r\n      <input type=\"text\" >\r\n    </div>\r\n  </section>\r\n  <section class=\"contents\">\r\n    <!-- ingredient[재료] -->\r\n    <div class=\"container\">\r\n      <div class=\"leftContanier\">\r\n        <div>\r\n          <label>재료 목록</label>\r\n        </div>\r\n        <div>\r\n          <select class=\"ingredient\" [ngModel]=\"selectedIngredient\" (ngModelChange)=\"fridgeListAdd($event)\">\r\n            <!-- <option value=\"none\">==선택==</option> -->\r\n            <option *ngFor=\"let item of ingredientList\" (selected)=\"test($event)\" [value]=\"item\">{{item}}</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n      <div class=\"rightContanier\">\r\n        <div>\r\n          <label>냉장고</label>\r\n        </div>\r\n        <div>\r\n          <input class=\"fridge\" type=\"text\" [(ngModel)]=\"fridgeList\" value=\"'{{fridgeList}}'\">\r\n        </div>\r\n        <div>\r\n          <label>레시피 리스트</label>\r\n        </div>\r\n        <div>\r\n          <table class=\"table\">\r\n            <tr *ngFor=\"let item of recipeList\">\r\n              <td>{{item}}</td>\r\n            </tr>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n  <button type=\"button\" (click)=\"test($event)\">test</button>\r\n</div>"
 
 /***/ }),
 
@@ -654,6 +654,7 @@ module.exports = "<div>\r\n  <section class=\"filter\">\r\n    <div class=\"cont
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FoodBilderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_ingredient_service__ = __webpack_require__("../../../../../src/app/food-bilder/service/ingredient.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -664,10 +665,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var FoodBilderComponent = (function () {
     function FoodBilderComponent() {
+        // 템블릿과 바인딩 되어져 있는 재료 목록
+        this.ingredientList = [];
+        // 냉장고에 들어있는 재료들
+        this.fridgeList = [];
+        // 레시피 리스트
+        this.recipeList = [];
+        this.ingredientService = new __WEBPACK_IMPORTED_MODULE_1__service_ingredient_service__["a" /* IngredientService */]();
     }
     FoodBilderComponent.prototype.ngOnInit = function () {
+        // 재료 가져오기
+        this.ingredientList = this.ingredientService.getIngredintList();
+    };
+    FoodBilderComponent.prototype.fridgeListAdd = function ($event) {
+        // FIXME :array의 find가 promiss패턴으로 되어있는듯 나중에 찾아보자
+        for (var _i = 0, _a = this.fridgeList; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if ($event == item)
+                return;
+        }
+        this.fridgeList.push($event);
+        console.log(this.fridgeList);
+        this.changeRecipeList();
+    };
+    FoodBilderComponent.prototype.changeRecipeList = function () {
+        this.recipeList = this.ingredientService.getRecipe(this.fridgeList);
     };
     return FoodBilderComponent;
 }());
@@ -681,6 +706,109 @@ FoodBilderComponent = __decorate([
 ], FoodBilderComponent);
 
 //# sourceMappingURL=food-bilder.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/food-bilder/service/ingredient.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngredientService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipeVO__ = __webpack_require__("../../../../../src/app/food-bilder/service/recipeVO.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var IngredientService = (function () {
+    function IngredientService() {
+        this.ingredientList = [];
+        this.recipeList = [];
+        this.recipe = [
+            new __WEBPACK_IMPORTED_MODULE_1__recipeVO__["a" /* RecipeVO */]("계란 후라이", ["식용유", "달걀"]),
+            new __WEBPACK_IMPORTED_MODULE_1__recipeVO__["a" /* RecipeVO */]("간장 계란 밥", ["식용유", "달걀", "간장", "밥", "참기름", "파"]),
+            new __WEBPACK_IMPORTED_MODULE_1__recipeVO__["a" /* RecipeVO */]("파 기름", ["식용유", "파"]),
+        ];
+    }
+    IngredientService.prototype.getIngredintList = function () {
+        this.ingredientList = ['식용유', '달걀', '간장', '밥', '참기름', '파'];
+        this.ingredientList.sort();
+        return this.ingredientList;
+    };
+    IngredientService.prototype.getRecipe = function (ingredientList) {
+        ingredientList.sort();
+        var ingredientString = "";
+        for (var _i = 0, ingredientList_1 = ingredientList; _i < ingredientList_1.length; _i++) {
+            var item = ingredientList_1[_i];
+            ingredientString += item;
+        }
+        console.log(ingredientString);
+        return this.calTest(ingredientString);
+    };
+    // FIXME : 원래 서버에서 내려줘되는거임.... 서버 개발하면 바꾸자.. 통신으로..
+    IngredientService.prototype.calTest = function (key) {
+        var rtnRecipeList = [];
+        for (var _i = 0, _a = this.recipe; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.searchKey == key) {
+                rtnRecipeList.push(item.name);
+            }
+        }
+        console.log(rtnRecipeList);
+        return rtnRecipeList;
+    };
+    return IngredientService;
+}());
+IngredientService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], IngredientService);
+
+//# sourceMappingURL=ingredient.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/food-bilder/service/recipeVO.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecipeVO; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var RecipeVO = (function () {
+    function RecipeVO(name, ingredientList) {
+        this.searchKey = "";
+        this.name = name;
+        this.ingredientList = ingredientList.sort();
+        for (var _i = 0, ingredientList_1 = ingredientList; _i < ingredientList_1.length; _i++) {
+            var item = ingredientList_1[_i];
+            this.searchKey += item;
+        }
+    }
+    return RecipeVO;
+}());
+RecipeVO = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [String, Array])
+], RecipeVO);
+
+//# sourceMappingURL=recipeVO.js.map
 
 /***/ }),
 
